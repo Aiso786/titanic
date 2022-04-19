@@ -2,7 +2,13 @@ import { Pool } from 'pg';
 import * as csv from 'csv-parser';
 import * as fs from 'fs';
 
-const pool = new Pool();
+const pool = new Pool({
+    user: process.env.DB_USER || 'postgres',
+    host: process.env.DB_HOST || 'localhost',
+    database: process.env.DB_NAME || 'titanic',
+    password: process.env.DB_PASSWORD || 'sa123!',
+    port: process.env.DB_PORT || 5432,
+  });
 pool.on('error', (err, client) => {
   console.error('Unexpected error on idle client', err);
   process.exit(-1);

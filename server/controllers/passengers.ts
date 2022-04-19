@@ -22,3 +22,7 @@ export const feedData = (async (req, res, next) => {
         next(error);
     }
 });
+
+export const ping = (async (req, res, next) => {
+    res.json("ok");
+});

@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  database:
+    image: 'postgres:latest'
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: sa123!
+      POSTGRES_DB: titanic
+  backend:
+    build:
+      context: ./server
+      dockerfile: ./Dockerfile
+    image: "aiso786/titanic-backend"
+    depends_on:
+      - database
+    links:
+      - database
+    environment:
+      - DB_HOST=database
+    ports:
+      - "5000:5000"
+  frontend:
+    build:
+      context: ./client
+      dockerfile: ./Dockerfile
+    image: "aiso786/titanic-frontend"
+    ports:
+      - "3000:3000"

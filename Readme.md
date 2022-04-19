@@ -1,23 +1,9 @@
-## Backend
+In order to test the application, you need to follow these steps.
 
-### Navigate to "server" folder
-`cd server`
+## Run this command:
+`docker-compose up -d`
 
-### Install packages
-`npm i`
+## Navigate to:
+`http://localhost:3000/`
 
-### Run backend
-`npm run start`
-
---------------------------
-
-## Frontend
-
-### Navigate to "client" folder
-`cd client`
-
-### Install packages
-`npm i`
-
-### Run frontend
-`npm run start`
+You will need to click on the "Feed Database" in order to insert the Titanic's passengers into the database.
